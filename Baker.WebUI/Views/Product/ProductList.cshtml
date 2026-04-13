@@ -1,0 +1,208 @@
+﻿@{
+    ViewData["Title"] = "ProductList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    :root {
+        --bakery-dark: #2D1B18;
+        --bakery-primary: #d87d4a;
+        --bakery-light: #fdf5e6;
+        --tech-bg: #F8F9FA;
+        --glass-white: rgba(255, 255, 255, 0.85);
+        --neon-border: rgba(216, 125, 74, 0.2);
+    }
+
+    .content-wrapper {
+        background-color: var(--tech-bg);
+        background-image: radial-gradient(var(--bakery-primary) 0.5px, transparent 0.5px);
+        background-size: 30px 30px;
+        background-attachment: fixed;
+        padding: 3rem 1.5rem;
+        min-height: 100vh;
+        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    .card {
+        border: 1px solid var(--neon-border) !important;
+        border-radius: 16px !important;
+        background: var(--glass-white) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        box-shadow: 0 8px 32px 0 rgba(45, 27, 24, 0.08) !important;
+        padding: 24px !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    }
+
+        .card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 12px 40px 0 rgba(216, 125, 74, 0.12) !important;
+        }
+
+    .card-title {
+        color: var(--bakery-dark) !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.5px !important;
+        border-bottom: 3px solid var(--bakery-primary) !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 20px !important;
+        text-transform: uppercase !important;
+    }
+
+    .table {
+        border-collapse: separate !important;
+        border-spacing: 0 8px !important;
+        background: transparent !important;
+    }
+
+        .table thead th {
+            background-color: var(--bakery-dark) !important;
+            color: #fff !important;
+            font-weight: 500 !important;
+            text-transform: uppercase !important;
+            font-size: 0.8rem !important;
+            letter-spacing: 1px !important;
+            padding: 15px !important;
+            border: none !important;
+        }
+
+        .table tbody tr {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02) !important;
+            transition: all 0.2s ease !important;
+        }
+
+            .table tbody tr td:first-child {
+                border-radius: 10px 0 0 10px !important;
+            }
+
+            .table tbody tr td:last-child {
+                border-radius: 0 10px 10px 0 !important;
+            }
+
+            .table tbody tr:hover {
+                background-color: var(--bakery-light) !important;
+                transform: scale(1.005) !important;
+            }
+
+        .table td {
+            padding: 14px 15px !important;
+            font-size: 14px !important;
+            color: var(--bakery-dark) !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+
+    .btn {
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s !important;
+        border: none !important;
+    }
+
+        /* Yeni Ürün - turuncu */
+        .btn-primary, .btn.btn-primary {
+            background: linear-gradient(135deg, var(--bakery-primary), #bc6c42) !important;
+            color: #fff !important;
+            padding: 11px 26px !important;
+            font-size: 14px !important;
+            box-shadow: 0 4px 14px rgba(216, 125, 74, 0.3) !important;
+        }
+
+            .btn-primary:hover {
+                opacity: 0.9 !important;
+                box-shadow: 0 6px 20px rgba(216, 125, 74, 0.45) !important;
+                color: #fff !important;
+                transform: translateY(-1px) !important;
+            }
+
+    /* Düzenle - yeşil */
+    .btn-success {
+        background: linear-gradient(135deg, #2ecc71, #27ae60) !important;
+        color: #fff !important;
+        padding: 8px 18px !important;
+        box-shadow: 0 3px 10px rgba(46, 204, 113, 0.3) !important;
+    }
+
+        .btn-success:hover {
+            opacity: 0.9 !important;
+            box-shadow: 0 5px 16px rgba(46, 204, 113, 0.45) !important;
+            color: #fff !important;
+            transform: translateY(-1px) !important;
+        }
+
+    /* Sil - kırmızı */
+    .btn-danger {
+        background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+        color: #fff !important;
+        padding: 8px 18px !important;
+        box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3) !important;
+    }
+
+        .btn-danger:hover {
+            opacity: 0.9 !important;
+            box-shadow: 0 5px 16px rgba(231, 76, 60, 0.45) !important;
+            color: #fff !important;
+            transform: translateY(-1px) !important;
+        }
+
+    /* Kategori badge */
+    .badge.badge-danger {
+        background: linear-gradient(135deg, var(--bakery-primary), #bc6c42) !important;
+        color: #fff !important;
+        border-radius: 50px !important;
+        padding: 5px 14px !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> ÜRÜNLER </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Tablo</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Ürün Listesi</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Ürün Listem</h4>
+                    <p class="card-description" style="margin-bottom:24px;">
+                        <a href="#" class="btn btn-primary">Yeni Ürün Girişi</a>
+                    </p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ürün ismi</th>
+                                <th>Fiyatı</th>
+                                <th>Kategorisi</th>
+                                <th class="text-center">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.productId</td>
+                                    <td>@item.name</td>
+                                    <td>@item.price</td>
+                                    <td><label class="badge badge-danger">@item.categoryName</label></td>
+                                    <td class="text-center">
+                                        <a href="/Product/UpdateProduct/@item.productId" class="btn btn-sm btn-success">Düzenle</a>
+                                        <a href="/Product/DeleteProduct/@item.productId" class="btn btn-sm btn-danger">Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

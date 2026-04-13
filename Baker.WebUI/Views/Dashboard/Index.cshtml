@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    :root {
+        --bakery-dark: #2D1B18;
+        --bakery-primary: #d87d4a;
+        --bakery-light: #fdf5e6;
+        --tech-bg: #F8F9FA;
+    }
+
+    .content-wrapper {
+        background-color: var(--tech-bg);
+        background-image: radial-gradient(var(--bakery-primary) 0.5px, transparent 0.5px);
+        background-size: 30px 30px;
+        background-attachment: fixed;
+        padding: 3rem 1.5rem;
+        min-height: 100vh;
+        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    .stat-card {
+        border: none !important;
+        border-radius: 18px !important;
+        overflow: hidden !important;
+        box-shadow: 0 8px 28px rgba(0,0,0,0.14) !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 16px 38px rgba(0,0,0,0.2) !important;
+        }
+
+        .stat-card .card-body {
+            padding: 28px 28px 24px !important;
+            position: relative !important;
+        }
+
+        .stat-card h4 {
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.08em !important;
+            opacity: 0.92 !important;
+            margin-bottom: 14px !important;
+        }
+
+        .stat-card h2 {
+            font-size: 44px !important;
+            font-weight: 800 !important;
+            margin-bottom: 20px !important;
+            line-height: 1 !important;
+        }
+
+        .stat-card h6 {
+            font-size: 12px !important;
+            opacity: 0.75 !important;
+            font-weight: 500 !important;
+        }
+
+    .card.bg-gradient-danger {
+        background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+        border: none !important;
+    }
+
+    .card.bg-gradient-info {
+        background: linear-gradient(135deg, #d87d4a, #bc6c42) !important;
+        border: none !important;
+    }
+
+    .card.bg-gradient-success {
+        background: linear-gradient(135deg, #2ecc71, #27ae60) !important;
+        border: none !important;
+    }
+
+    .card-img-absolute {
+        position: absolute !important;
+        right: -20px !important;
+        bottom: -20px !important;
+        width: 140px !important;
+        opacity: 0.18 !important;
+    }
+
+    .page-title-icon {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 10px !important;
+        background: linear-gradient(135deg, #d87d4a, #bc6c42) !important;
+        box-shadow: 0 4px 12px rgba(216, 125, 74, 0.35) !important;
+        font-size: 18px !important;
+        vertical-align: middle !important;
+        margin-right: 10px !important;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon text-white me-2">
+                <i class="mdi mdi-home"></i>
+            </span> Dashboard
+        </h3>
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <span></span>Genel Bakış
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-danger card-img-holder text-white stat-card">
+                <div class="card-body">
+                    <img src="~/PurpleAdmin-Free-Admin-Template-1.0.0/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        ÜRÜNLER <i class="mdi mdi-cart mdi-24px float-end"></i>
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.ProductCount</h2>
+                    <h6 class="card-text">Toplam ürün sayısı</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-info card-img-holder text-white stat-card">
+                <div class="card-body">
+                    <img src="~/PurpleAdmin-Free-Admin-Template-1.0.0/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        ŞEFLER <i class="mdi mdi-account mdi-24px float-end"></i>
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.ChefCount</h2>
+                    <h6 class="card-text">Toplam şef sayısı</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-success card-img-holder text-white stat-card">
+                <div class="card-body">
+                    <img src="~/PurpleAdmin-Free-Admin-Template-1.0.0/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        KATEGORİLER <i class="mdi mdi-tag mdi-24px float-end"></i>
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.CategoryCount</h2>
+                    <h6 class="card-text">Toplam kategori sayısı</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

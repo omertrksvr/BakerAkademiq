@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "KF9RDz4uv46Zi+Ii8czuQoI0nsKEdrCaP+xpXdjuwdU=",
+  "Source": "Baker.WebApi",
+  "BasePath": "_content/Baker.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

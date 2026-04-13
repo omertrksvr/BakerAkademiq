@@ -1,0 +1,267 @@
+﻿@model Baker.WebUI.Dtos.Product.UpdateProductDto
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ürün Güncelle - Baker</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bakery-dark: #2d2424;
+            --bakery-primary: #e67e22;
+            --bakery-accent: #f39c12;
+            --bakery-bg: #faf7f2;
+            --bakery-card: #ffffff;
+            --bakery-light: #fdf2e9;
+            --bakery-border: rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bakery-bg);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 0; /* Form uzun olduğu için taşma payı */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 550px;
+            padding: 20px;
+        }
+
+        .form-card {
+            background: var(--bakery-card);
+            padding: 60px 45px 45px 45px;
+            border-radius: 32px;
+            border: 1px solid var(--bakery-border);
+            box-shadow: 0 25px 50px -12px rgba(78, 52, 46, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+            /* Modern Üst Şerit */
+            .form-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 6px;
+                background: linear-gradient(90deg, var(--bakery-primary), var(--bakery-accent));
+            }
+
+        /* Modern ID Badge */
+        .status-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--bakery-light);
+            color: var(--bakery-primary);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: 1px solid rgba(230, 126, 34, 0.1);
+        }
+
+        .form-header {
+            color: var(--bakery-dark);
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+            .form-header::after {
+                content: '';
+                display: block;
+                width: 45px;
+                height: 4px;
+                background: var(--bakery-primary);
+                margin: 12px 0 25px 0;
+                border-radius: 10px;
+            }
+
+        .form-subtitle {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .bakery-form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: var(--bakery-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: block;
+            padding-left: 4px;
+        }
+
+        /* Tüm Input Tipleri İçin Ortak Modern Stil */
+        .form-card .form-control,
+        .form-card .form-select {
+            width: 100%;
+            border-radius: 16px;
+            border: 2px solid #f3f3f3;
+            background-color: #fcfaf8;
+            padding: 14px 18px;
+            font-size: 0.95rem;
+            color: var(--bakery-dark);
+            transition: var(--transition);
+            box-sizing: border-box;
+            height: auto;
+        }
+
+            .form-card .form-control:focus,
+            .form-card .form-select:focus {
+                outline: none;
+                border-color: var(--bakery-primary);
+                background-color: #fff;
+                box-shadow: 0 8px 20px rgba(230, 126, 34, 0.06);
+            }
+
+        /* Hata Mesajı Stili */
+        .text-danger {
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-top: 5px;
+            display: block;
+            padding-left: 4px;
+        }
+
+        /* Kaydet Butonu */
+        .btn-bakery {
+            background: var(--bakery-dark);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            display: block;
+        }
+
+            .btn-bakery:hover {
+                background: var(--bakery-primary);
+                color: white;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 25px rgba(230, 126, 34, 0.25);
+                text-decoration: none;
+            }
+
+        /* Geri Dön Butonu */
+        .btn-cancel {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+            .btn-cancel:hover {
+                color: var(--bakery-dark);
+                text-decoration: none;
+                transform: translateX(-4px);
+            }
+
+        /* Alert Düzenlemesi */
+        .alert-danger {
+            border-radius: 16px;
+            font-size: 0.85rem;
+            border: none;
+            background-color: #fff1f0;
+            color: #d85c5c;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-card">
+            <span class="status-badge">Ürün ID: #@Model.ProductId</span>
+
+            <h2 class="form-header">Ürün Güncelle</h2>
+            <span class="form-subtitle">Tezgahtaki ürün bilgilerini tazeleyin.</span>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+
+            <form method="post" asp-action="UpdateProduct">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="ProductId" />
+
+                <div class="bakery-form-group">
+                    <label asp-for="Name">Ürün Adı</label>
+                    <input type="text" asp-for="Name" class="form-control" placeholder="Örn: Tam Buğday Ekmeği" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="bakery-form-group">
+                            <label asp-for="Price">Fiyat (TL)</label>
+                            <input type="number" asp-for="Price" class="form-control" step="0.01" placeholder="0.00" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="bakery-form-group">
+                            <label asp-for="CategoryId">Kategori</label>
+                            <select asp-for="CategoryId" asp-items="@(ViewBag.Categories as SelectList)" class="form-select">
+                                <option value="">-- Seçiniz --</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bakery-form-group">
+                    <label asp-for="ImageUrl">Görsel URL</label>
+                    <input type="text" asp-for="ImageUrl" class="form-control" placeholder="https://..." />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+
+                <div class="bakery-form-group">
+                    <label asp-for="Description">Ürün Açıklaması</label>
+                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Ürün içeriği ve detayları..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn-bakery">Değişiklikleri Fırına Gönder</button>
+                <a asp-action="ProductList" class="btn-cancel">← Ürün Listesine Geri Dön</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

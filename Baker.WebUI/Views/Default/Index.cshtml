@@ -1,0 +1,421 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Topbar Start -->
+    <div class="container-fluid top-bar bg-dark text-light px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row gx-0 align-items-center d-none d-lg-flex">
+            <div class="col-lg-6 px-5 text-start">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a class="small text-light" href="#">Anasayfa</a></li>
+                    <li class="breadcrumb-item"><a class="small text-light" href="#">Kariyer</a></li>
+                    <li class="breadcrumb-item"><a class="small text-light" href="#">Şartlar</a></li>
+                    <li class="breadcrumb-item"><a class="small text-light" href="#">Gizlilik</a></li>
+                </ol>
+            </div>
+            <div class="col-lg-6 px-5 text-end">
+                <small>Bizi takip edin:</small>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn-lg-square text-primary pe-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+            <h1 class="text-primary m-0">Baker</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav mx-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Anasayfa</a>
+                <a href="about.html" class="nav-item nav-link">Hakkımızda</a>
+                <a href="service.html" class="nav-item nav-link">Hizmetlerimiz</a>
+                <a href="product.html" class="nav-item nav-link">Ürünlerimiz</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sayfalar</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="team.html" class="dropdown-item">Ekibimiz</a>
+                        <a href="testimonial.html" class="dropdown-item">Yorumlar</a>
+                        <a href="404.html" class="dropdown-item">404 Sayfası</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">İletişim</a>
+            </div>
+            <div class=" d-none d-lg-flex">
+                <div class="flex-shrink-0 btn-lg-square border border-light rounded-circle">
+                    <i class="fa fa-phone text-primary"></i>
+                </div>
+                <div class="ps-3">
+                    <small class="text-primary mb-0">Bizi Arayın</small>
+                    <p class="text-light fs-5 mb-0">423 12 12</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <!-- Carousel Start -->
+    @await Component.InvokeAsync("_DefaultFeatureComponentPartial")
+    <!-- Carousel End -->
+    <!-- Facts Start -->
+    @await Component.InvokeAsync("_DefaultStatisticComponentPartial")
+    <!-- Facts End -->
+    <!-- About Start -->
+    <div class="container-xxl py-6">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row img-twice position-relative h-100">
+                        <div class="col-6">
+                            <img class="img-fluid rounded" src="~/baker-1.0.0/img/about-1.jpg" alt="">
+                        </div>
+                        <div class="col-6 align-self-end">
+                            <img class="img-fluid rounded" src="~/baker-1.0.0/img/about-2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <p class="text-primary text-uppercase mb-2">// Hakkımızda</p>
+                        <h1 class="display-6 mb-4">Her Ürünü Yürekten Pişiriyoruz</h1>
+                        <p>Yılların verdiği deneyim ve sevgiyle hazırladığımız ürünlerimiz, en taze malzemeler kullanılarak özenle üretilmektedir. Müşterilerimizin memnuniyeti bizim için her şeyden önemlidir.</p>
+                        <p>Geleneksel tariflerimizi modern tekniklerle harmanlayarak benzersiz lezzetler sunuyoruz. Her lokmada kaliteyi ve özeni hissedebilirsiniz.</p>
+                        <div class="row g-2 mb-4">
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Kaliteli Ürünler
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Özel Siparişler
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Online Sipariş
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Eve Teslimat
+                            </div>
+                        </div>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Daha Fazla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+    <!-- Product Start -->
+    <div class="container-xxl bg-light my-6 py-6 pt-0">
+        <div class="container">
+            <div class="bg-primary text-light rounded-bottom p-5 my-6 mt-0 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 text-light mb-0">Şehrinizin En İyi Fırını</h1>
+                    </div>
+                    <div class="col-lg-6 text-lg-end">
+                        <div class="d-inline-flex align-items-center text-start">
+                            <i class="fa fa-phone-alt fa-4x flex-shrink-0"></i>
+                            <div class="ms-4">
+                                <p class="fs-5 fw-bold mb-0">Bizi Arayın</p>
+                                <p class="fs-1 fw-bold mb-0">423 12 12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="text-primary text-uppercase mb-2">// Fırın Ürünleri</p>
+                <h1 class="display-6 mb-4">Fırın Ürünlerimizin Kategorilerini Keşfedin</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h3 class="mb-3">Günlük Fırın Ürünleri</h3>
+                            <span>Güne sıcak ve taze başlamak için her gün hazırlanan fırın ürünlerimiz.</span>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/product-1.jpg" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h3 class="mb-3">Börek Çeşitleri</h3>
+                            <span>El açması hamurla hazırlanan, içi dolu lezzetli böreklerimiz.</span>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/product-2.jpg" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h3 class="mb-3">Ekmekler</h3>
+                            <span>Ekşi mayalı geleneksel tariflerle her gün taze pişirilen ekmeklerimiz.</span>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/product-3.jpg" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h3 class="mb-3">Sütlü Tatlılar</h3>
+                            <span>Günlük taze sütlerle hazırlanan hafif ve lezzetli sütlü tatlılarımız.</span>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/product-4.jpg" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h3 class="mb-3">Şerbetli Tatlılar</h3>
+                            <span>Özenle hazırlanan geleneksel şerbetli tatlılarımızla tatlı bir keyif yaşayın.</span>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/product-5.jpg" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- Product End -->
+    <!-- Service Start -->
+    <div class="container-xxl py-6">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <p class="text-primary text-uppercase mb-2">// Hizmetlerimiz</p>
+                    <h1 class="display-6 mb-4">Size Neler Sunuyoruz?</h1>
+                    <p class="mb-5">Müşterilerimize en iyi deneyimi sunmak için her gün çalışıyoruz. Kaliteli malzemeler, özenli üretim ve hızlı teslimat ile yanınızdayız.</p>
+                    <div class="row gy-5 gx-4">
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
+                                    <i class="fa fa-bread-slice text-white"></i>
+                                </div>
+                                <h5 class="mb-0">Kaliteli Ürünler</h5>
+                            </div>
+                            <span>En taze malzemelerle hazırlanan, kalite kontrollü ürünler.</span>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
+                                    <i class="fa fa-birthday-cake text-white"></i>
+                                </div>
+                                <h5 class="mb-0">Özel Siparişler</h5>
+                            </div>
+                            <span>İsteğinize göre tasarlanan kişisel siparişler.</span>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
+                                    <i class="fa fa-cart-plus text-white"></i>
+                                </div>
+                                <h5 class="mb-0">Online Sipariş</h5>
+                            </div>
+                            <span>Kolayca online sipariş verin, biz hazırlayalım.</span>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
+                                    <i class="fa fa-truck text-white"></i>
+                                </div>
+                                <h5 class="mb-0">Eve Teslimat</h5>
+                            </div>
+                            <span>Siparişlerinizi kapınıza kadar teslim ediyoruz.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row img-twice position-relative h-100">
+                        <div class="col-6">
+                            <img class="img-fluid rounded" src="img/service-1.jpg" alt="">
+                        </div>
+                        <div class="col-6 align-self-end">
+                            <img class="img-fluid rounded" src="img/service-2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+    <!-- Team Start -->
+    @await Component.InvokeAsync("_DefaultChefComponentPartial")
+    <!-- Team End -->
+    <!-- Testimonial Start -->
+    <div class="container-xxl bg-light my-6 py-6 pb-0">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="text-primary text-uppercase mb-2">// Müşteri Yorumları</p>
+                <h1 class="display-6 mb-4">20.000'den Fazla Müşterimiz Bize Güveniyor</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item bg-white rounded p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img class="flex-shrink-0 rounded-circle border p-1" src="~/baker-1.0.0/img/testimonial-1.jpg" alt="">
+                    </div>
+                    <p class="mb-0">Ürünleri gerçekten muhteşem, her zaman taze ve lezzetli. Kesinlikle tavsiye ediyorum.</p>
+                </div>
+                <div class="testimonial-item bg-white rounded p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img class="flex-shrink-0 rounded-circle border p-1" src="~/baker-1.0.0/img/testimonial-2.jpg" alt="">
+                    </div>
+                    <p class="mb-0">Eve teslimat çok hızlı ve ürünler eksiksiz geldi. Harika bir hizmet!</p>
+                </div>
+                <div class="testimonial-item bg-white rounded p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img class="flex-shrink-0 rounded-circle border p-1" src="~/baker-1.0.0/img/testimonial-3.jpg" alt="">
+                    </div>
+                    <p class="mb-0">Doğum günü pastam tam istediğim gibi yapıldı. Çok teşekkürler!</p>
+                </div>
+                <div class="testimonial-item bg-white rounded p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img class="flex-shrink-0 rounded-circle border p-1" src="~/baker-1.0.0/img/testimonial-4.jpg" alt="">
+                    </div>
+                    <p class="mb-0">Yıllardır müşterisiyim, kalite hiç düşmedi. Her zaman memnun ayrılıyorum.</p>
+                </div>
+            </div>
+            <div class="bg-primary text-light rounded-top p-5 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1 class="display-4 text-light mb-0">Bültenimize Abone Olun</h1>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="position-relative">
+                            <input class="form-control bg-transparent border-light w-100 py-3 ps-4 pe-5" type="text" placeholder="E-posta adresiniz">
+                            <button type="button" class="btn btn-dark py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Abone Ol</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Adresimiz</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Örnek Mah. No:123, İstanbul</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Hızlı Bağlantılar</h4>
+                    <a class="btn btn-link" href="">Hakkımızda</a>
+                    <a class="btn btn-link" href="">İletişim</a>
+                    <a class="btn btn-link" href="">Hizmetlerimiz</a>
+                    <a class="btn btn-link" href="">Kullanım Koşulları</a>
+                    <a class="btn btn-link" href="">Destek</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Hızlı Bağlantılar</h4>
+                    <a class="btn btn-link" href="">Hakkımızda</a>
+                    <a class="btn btn-link" href="">İletişim</a>
+                    <a class="btn btn-link" href="">Hizmetlerimiz</a>
+                    <a class="btn btn-link" href="">Kullanım Koşulları</a>
+                    <a class="btn btn-link" href="">Destek</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Fotoğraf Galerisi</h4>
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Görsel">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Görsel">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Görsel">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Görsel">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Görsel">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Görsel">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a href="#">Baker Fırın</a>, Tüm Hakları Saklıdır.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Tasarım: <a href="https://htmlcodex.com">HTML Codex</a>
+                    <br>Dağıtım: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/baker-1.0.0/lib/wow/wow.min.js"></script>
+    <script src="~/baker-1.0.0/lib/easing/easing.min.js"></script>
+    <script src="~/baker-1.0.0/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/baker-1.0.0/lib/counterup/counterup.min.js"></script>
+    <script src="~/baker-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/baker-1.0.0/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+﻿@model Baker.WebUI.Dtos.Category.CreateCategoryDto
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <div class="form-card">
+        <h2 class="form-header">Yeni Kategori Ekle</h2>
+
+        <!-- ✅ asp-action eklendi -->
+        <form method="post" asp-action="CreateCategory">
+            @Html.AntiForgeryToken()
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+
+            <div class="form-group">
+                <label asp-for="CategoryName">Kategori Adı</label>
+                <input type="text" asp-for="CategoryName" class="form-control" placeholder="Örn: Ekmek" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-bakery">Kategoriyi Kaydet</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    :root {
+        --bakery-dark: #2d2424;
+        --bakery-primary: #e67e22;
+        --bakery-light: #fdf2e9; /* Badge arka planı için daha doygun bir krem */
+        --bakery-border: rgba(224, 212, 195, 0.4);
+        --bakery-input-bg: #fcfaf8;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+        background-color: #f8f4f0;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    .form-card {
+        background: #ffffff;
+        padding: 60px 40px 40px 40px; /* Üstten badge için biraz daha fazla boşluk */
+        border-radius: 28px;
+        border: 1px solid var(--bakery-border);
+        box-shadow: 0 25px 50px -12px rgba(78, 52, 46, 0.12);
+        position: relative;
+        overflow: hidden; /* Badge'in taşmasını önlemek için */
+    }
+
+    /* Yeni Eklenen ID/Durum Badge Stili */
+    .status-badge {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: var(--bakery-light);
+        color: var(--bakery-primary);
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border: 1px solid rgba(230, 126, 34, 0.2);
+    }
+
+    .form-header {
+        color: var(--bakery-dark);
+        font-size: 1.8rem;
+        font-weight: 800;
+        text-align: left; /* Modernist sola yaslı başlık */
+        margin-bottom: 35px;
+        margin-top: 10px;
+    }
+
+        .form-header::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--bakery-primary);
+            margin: 12px 0 0 0; /* Sola yaslı ayraç */
+            border-radius: 10px;
+        }
+
+    /* Bootstrap .form-group çakışmasını önlemek için özel sınıf */
+    .bakery-form-group {
+        margin-bottom: 24px;
+    }
+
+    label {
+        display: block;
+        color: var(--bakery-dark);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+        padding-left: 4px;
+    }
+
+    /* .form-control Bootstrap sınıfını modernist stilimizle eziyoruz */
+    .form-card .form-control {
+        width: 100%;
+        border-radius: 16px;
+        border: 2px solid transparent;
+        background-color: var(--bakery-input-bg);
+        padding: 15px 20px;
+        font-size: 1rem;
+        color: var(--bakery-dark);
+        transition: var(--transition);
+        box-sizing: border-box;
+        height: auto; /* Bootstrap height'ını ezmek için */
+    }
+
+        .form-card .form-control:focus {
+            outline: none;
+            background-color: #ffffff;
+            border-color: var(--bakery-primary);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.08);
+            color: var(--bakery-dark);
+        }
+
+        /* placeholder stili */
+        .form-card .form-control::placeholder {
+            color: #bcaaa4;
+            opacity: 0.7;
+        }
+
+    /* Kaydet Butonu */
+    .btn-bakery {
+        background: var(--bakery-dark);
+        color: #ffffff;
+        border: none;
+        padding: 18px;
+        border-radius: 16px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        width: 100%;
+        margin-top: 15px;
+        cursor: pointer;
+        transition: var(--transition);
+        display: block; /* Tam genişlik için */
+        text-align: center;
+    }
+
+        .btn-bakery:hover {
+            background: var(--bakery-primary);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(230, 126, 34, 0.25);
+            text-decoration: none;
+        }
+
+    /* Geri Dön / Vazgeç Butonu */
+    .btn-cancel {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #999;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: var(--transition);
+    }
+
+        .btn-cancel:hover {
+            color: var(--bakery-dark);
+            text-decoration: none;
+        }
+
+    /* Eski emoji dekorasyonunu kaldırdık */
+    .form-card::before {
+        display: none;
+    }
+</style>

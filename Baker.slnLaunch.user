@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Baker.WebApi\\Baker.WebApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Baker.WebUI\\Baker.WebUI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+﻿@model Baker.WebUI.Dtos.Chefs.CreateChefDto
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /> <br />
+    <form method="post">
+        <label>Kişinin Adı Soyadı</label>
+        <input type="text" asp-for="name" class="form-control" />
+        <br />
+        <label>Kişinin Görevi</label>
+        <input type="text" asp-for="title" class="form-control" />
+        <br />
+        <label>Kişinin Resmi</label>
+        <input type="text" asp-for="imageurl" class="form-control" />
+        <br />
+        <button class="btn btn-primary"> Kişiyi Kaydet</button>
+    </form>
+</div>

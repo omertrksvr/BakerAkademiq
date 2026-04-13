@@ -1,0 +1,120 @@
+﻿@model Baker.WebUI.Dtos.Contact.CreateContactDto
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+<div class="container">
+    <div class="form-card">
+        <h2 class="form-header">👨‍🍳 Yeni Şef Kaydı</h2>
+
+        <form method="post">
+
+
+            <div class="form-group">
+                <label>Başlık</label>
+                <input type="text" asp-for="Title" class="form-control" placeholder="Örn: Title" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Telefon Numarası</label>
+                <input type="text" asp-for="PhoneNumber" class="form-control" placeholder="Örn: +90xxx" />
+            </div>
+            <br />
+
+
+
+
+
+            <button type="submit" class="btn btn-bakery">Kişiyi Fırına Ekle (Kaydet)</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Fırıncı Teması Değişkenleri */
+    :root {
+        --bakery-dark: #4e342e;
+        --bakery-primary: #d87d4a;
+        --bakery-light: #fdf5e6;
+        --bakery-border: #e0d4c3;
+    }
+
+    body {
+        background-color: #f4ece2; /* Sayfa arka planı */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+        max-width: 600px;
+        margin-top: 50px;
+    }
+
+    /* Form Kartı Tasarımı */
+    .form-card {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        border: 2px solid var(--bakery-border);
+        box-shadow: 0 10px 25px rgba(78, 52, 46, 0.1);
+    }
+
+    .form-header {
+        color: var(--bakery-dark);
+        font-family: 'Georgia', serif;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px dashed var(--bakery-primary);
+        padding-bottom: 15px;
+    }
+
+    /* Input Alanları */
+    label {
+        color: var(--bakery-dark);
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1px solid var(--bakery-border);
+        background-color: var(--bakery-light); /* Hafif krem rengi */
+        padding: 12px;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: var(--bakery-primary);
+            box-shadow: 0 0 0 0.2rem rgba(216, 125, 74, 0.25);
+            background-color: #fff;
+        }
+
+    /* Kaydet Butonu */
+    .btn-bakery {
+        background-color: var(--bakery-primary);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 10px;
+        font-weight: bold;
+        width: 100%;
+        margin-top: 20px;
+        box-shadow: 0 4px 0 #bc6c42;
+        transition: all 0.2s ease;
+    }
+
+        .btn-bakery:hover {
+            background-color: #bc6c42;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-bakery:active {
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+</style>

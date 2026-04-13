@@ -1,0 +1,190 @@
+﻿@model List<Baker.WebUI.Dtos.Category.ResultCategoryDto>
+
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <div class="page-header">
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kategori Listem</h4>
+                    <p class="card-description">
+                        Sitenin ana sayfasındaki kategorilerinizi buradan yönetebilirsiniz.
+                    </p>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kategori Adı</th>
+                                <th class="text-center">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td><strong>@item.CategoryId</strong></td>
+                                        <td style="color: var(--bakery-dark); font-weight: 600;">@item.CategoryName</td>
+                                        <td class="text-center">
+                                            <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-sm btn-success">Düzenle</a>
+                                            <a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-sm btn-danger">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Category/CreateCategory/" class="btn btn-primary mt-2">Yeni Kategori Girişi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --bakery-dark: #2D1B18;
+        --bakery-primary: #d87d4a;
+        --bakery-light: #fdf5e6;
+        --bakery-accent: #a1887f;
+        --tech-bg: #F8F9FA;
+        --glass-white: rgba(255, 255, 255, 0.85);
+        --neon-border: rgba(216, 125, 74, 0.2);
+    }
+
+    .content-wrapper {
+        background-color: var(--tech-bg);
+        background-image: radial-gradient(var(--bakery-primary) 0.5px, transparent 0.5px);
+        background-size: 30px 30px;
+        background-attachment: fixed;
+        padding: 3rem 1.5rem;
+        min-height: 100vh;
+        font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    .card {
+        border: 1px solid var(--neon-border);
+        border-radius: 16px;
+        background: var(--glass-white);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgba(45, 27, 24, 0.08);
+        padding: 24px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px 0 rgba(216, 125, 74, 0.12);
+    }
+
+    .card-title {
+        color: var(--bakery-dark);
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        border-bottom: 3px solid var(--bakery-primary);
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .table {
+        border-collapse: separate;
+        border-spacing: 0 8px;
+        background: transparent;
+    }
+
+    .table thead th {
+        background-color: var(--bakery-dark);
+        color: #fff;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        padding: 15px;
+        border: none;
+    }
+
+    .table tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        transition: all 0.2s ease;
+    }
+
+    .table tbody tr td:first-child { border-radius: 10px 0 0 10px; }
+    .table tbody tr td:last-child  { border-radius: 0 10px 10px 0; }
+
+    .table tbody tr:hover {
+        background-color: var(--bakery-light) !important;
+        transform: scale(1.005);
+    }
+
+    .table td {
+        padding: 14px 15px;
+        border: none;
+        vertical-align: middle;
+    }
+
+    /* ===== BUTONLAR ===== */
+    .btn {
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+    }
+
+    /* Yeni Kategori - turuncu */
+    .btn-primary {
+        background: linear-gradient(135deg, var(--bakery-primary), #bc6c42);
+        color: #fff;
+        padding: 11px 26px;
+        font-size: 14px;
+        box-shadow: 0 4px 14px rgba(216, 125, 74, 0.3);
+    }
+
+    .btn-primary:hover {
+        opacity: 0.9;
+        box-shadow: 0 6px 20px rgba(216, 125, 74, 0.45);
+        color: #fff;
+        transform: translateY(-1px);
+    }
+
+    /* Düzenle - yeşil */
+    .btn-success {
+        background: linear-gradient(135deg, #2ecc71, #27ae60) !important;
+        color: #fff !important;
+        padding: 8px 18px !important;
+        box-shadow: 0 3px 10px rgba(46, 204, 113, 0.3) !important;
+    }
+
+    .btn-success:hover {
+        opacity: 0.9 !important;
+        box-shadow: 0 5px 16px rgba(46, 204, 113, 0.45) !important;
+        color: #fff !important;
+        transform: translateY(-1px) !important;
+    }
+
+    /* Sil - kırmızı */
+    .btn-danger {
+        background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+        color: #fff !important;
+        padding: 8px 18px !important;
+        box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3) !important;
+    }
+
+    .btn-danger:hover {
+        opacity: 0.9 !important;
+        box-shadow: 0 5px 16px rgba(231, 76, 60, 0.45) !important;
+        color: #fff !important;
+        transform: translateY(-1px) !important;
+    }
+</style>

@@ -1,0 +1,195 @@
+﻿@model Baker.WebUI.Dtos.Feature.UpdateFeatureDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+@if (Model == null)
+{
+    <div class="container">
+        <div class="alert alert-danger text-center">
+            <h4>Veri yüklenemedi!</h4>
+            <p>Güncellenecek kayıt bulunamadı veya API bağlantısı sağlanamadı.</p>
+            <a href="/Gallery/GalleryList" class="btn btn-outline-danger">Listeye Geri Dön</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="update-card">
+            <div class="id-badge">Hakkımızda ID: #@Model.FeatureId</div>
+            <h2 class="form-header">Ana Bilgilerini Güncelle</h2>
+
+            <form method="post">
+                @* ID bilgisini sunucuya göndermek için gizli input *@
+                <input type="hidden" asp-for="FeatureId" />
+
+                <div class="form-group">
+                    <label>Başlık (Title)</label>
+                    <input type="text" asp-for="Title" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-update">Değişiklikleri Fırına At (Güncelle)</button>
+                <a href="/Feature/FeatureList" class="btn-cancel">← Değişiklik Yapmadan Geri Dön</a>
+            </form>
+        </div>
+    </div>
+}
+
+
+<style>
+    :root {
+        /* Daha modern ve sofistike bir palet */
+        --bakery-dark: #2d2424;
+        --bakery-primary: #e67e22; /* Daha canlı bir turuncu */
+        --bakery-accent: #f39c12;
+        --bakery-bg: #faf7f2;
+        --bakery-card: #ffffff;
+        --bakery-border: rgba(0, 0, 0, 0.05);
+        --bakery-success: #2ecc71;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+        background-color: var(--bakery-bg);
+        font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 450px; /* Daha kompakt ve modern bir genişlik */
+        padding: 20px;
+    }
+
+    .update-card {
+        background: var(--bakery-card);
+        padding: 48px 40px;
+        border-radius: 32px; /* Daha yumuşak köşeler */
+        border: 1px solid var(--bakery-border);
+        box-shadow: 0 20px 40px rgba(78, 52, 46, 0.08); /* Hafif ve derin gölge */
+        position: relative;
+        overflow: hidden;
+    }
+
+        /* Üst kısma modern bir dokunuş: İnce bir renk şeridi */
+        .update-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--bakery-primary), var(--bakery-accent));
+        }
+
+    .id-badge {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: #fdf2e9;
+        color: var(--bakery-primary);
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .form-header {
+        color: var(--bakery-dark);
+        font-size: 1.75rem;
+        font-weight: 800;
+        text-align: left; /* Modern tasarımda sola yaslı başlıklar yükselişte */
+        margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 32px;
+        display: block;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        color: var(--bakery-dark);
+        font-weight: 600;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        display: block;
+        padding-left: 4px;
+    }
+
+    .form-control {
+        width: 100%;
+        border-radius: 14px;
+        border: 2px solid #f1f1f1;
+        background-color: #fcfcfc;
+        padding: 14px 18px;
+        font-size: 1rem;
+        transition: var(--transition);
+        box-sizing: border-box;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--bakery-primary);
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.1);
+        }
+
+    .btn-update {
+        background: var(--bakery-dark); /* Modern minimalist siyah buton */
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 1rem;
+        width: 100%;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+        .btn-update:hover {
+            background: var(--bakery-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+    .btn-cancel {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #999;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: var(--transition);
+    }
+
+        .btn-cancel:hover {
+            color: var(--bakery-dark);
+        }
+</style>
